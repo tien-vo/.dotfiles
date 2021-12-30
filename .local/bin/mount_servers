@@ -1,0 +1,62 @@
+#!/bin/sh
+# Mount the related directories in a server
+
+
+if [[ $1 != "drive" ]]; then
+
+    if [[ $1 == "cori" ]]; then
+
+        dirs=( "HOME" "SCRATCH" "CFS_3026" "CFS_3583" )
+        server_dirs=( \
+            "cori:/global/homes/a/anthnyvo"
+            "cori:/global/cscratch1/sd/anthnyvo"
+            "cori:/global/cfs/cdirs/m3026"
+            "cori:/global/cfs/cdirs/m3583"
+        )
+
+    elif [[ $1 == "stampede" ]]; then
+
+        dirs=( "HOME" "SCRATCH" )
+        server_dirs=( \
+            "stampede:/home1/07514/anthny"
+            "stampede:/scratch/07514/anthny"
+        )
+
+    elif [[ $1 == "msi" ]]; then
+
+        dirs=( "HOME" "SHARED" )
+        server_dirs=( \
+            "msi:/home/cattellc/voxxx266"
+            "msi:/home/cattellc/shared"
+        )
+
+    elif [[ $1 == "space" ]]; then
+
+        dirs=( "HOME" )
+        server_dirs=( \
+            "space:/Users/voxxx266"
+        )
+
+    fi
+
+    for i in $(seq 0 1 $((${#dirs[@]}-1)))
+    do
+
+        echo "Mounting ${dirs[$i]} from $1 to $HOME/Mounts/$1/${dirs[$i]}"
+        mkdir -p $HOME/Mounts/$1/${dirs[$i]}
+        sshfs ${server_dirs[$i]} $HOME/Mounts/$1/${dirs[$i]}
+
+    done
+
+else
+
+    mkdir -p $HOME/Mounts/google_drive/HOME
+    mkdir -p $HOME/Mounts/google_drive/MXP2
+
+    google-drive-ocamlfuse $HOME/Mounts/google_drive/HOME
+    google-drive-ocamlfuse -label MXP2 $HOME/Mounts/google_drive/MXP2
+
+fi
+
+
+
