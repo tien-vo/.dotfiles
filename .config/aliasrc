@@ -5,9 +5,8 @@ alias vim="nvim"
 alias vifm="vifmrun"
 alias zload="source $HOME/.config/zsh/.zshrc"
 alias zconf="vim $XDG_CONFIG_HOME/zsh/.zshrc"
-alias ls="lsd -1l --blocks permission,size,date,name --date '+%y/%m/%d %H:%M'"
+alias ls="lsd -1l --blocks permission,size,date,name --date '+%y/%m/%d:%H:%M' --group-dirs first"
 alias git-config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-#alias evolution='$HOME/bin/evolution'
 
 # Gimp
 #alias gimp="gimp --session=${XDG_CONFIG_HOME:-$HOME/.config}/gimp-2.8/sessionrc --gimprc=${XDG_CONFIG_HOME:-$HOME/.config}/gimp-2.8/gimprc"

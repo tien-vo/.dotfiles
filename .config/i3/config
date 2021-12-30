@@ -166,10 +166,12 @@ for_window [class="dropdown_*"] move scratchpad
 for_window [class="dropdown_*"] move position center
 for_window [class="dropdown_*"] resize set 1800 950
 for_window [class="dropdown_*"] border pixel 6
+
 # Terminal
 exec --no-startup-id $term -n "dropdown_terminal" -c "dropdown_terminal"
 bindsym $M+space [class="dropdown_terminal"] scratchpad show; [class="dropdown_terminal"] move position center
 bindsym $M+$S+space exec $term -n "dropdown_terminal" -c "dropdown_terminal"
+
 # Spotify (don't start up automatically)
 for_window [class="Spotify"] move scratchpad
 for_window [class="Spotify"] resize set 1800 950
@@ -177,4 +179,9 @@ for_window [class="Spotify"] border pixel 6
 bindsym $M+m [class="Spotify"] scratchpad show; \
     [class="Spotify"] move position center
 bindsym $M+$S+m exec $HOME/.config/i3/scripts/spotify.sh
+
+# VIFM
+exec --no-startup-id $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
+bindsym $M+v [class="dropdown_vifm"] scratchpad show; [class="dropdown_vifm"] move position center
+bindsym $M+$S+v exec $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
 
