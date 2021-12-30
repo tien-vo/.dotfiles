@@ -1,0 +1,180 @@
+# i3 config file (v4)
+# ---------------------------------------------------------------------------- #
+# 							  Autostart program
+# ---------------------------------------------------------------------------- #
+exec_always $HOME/.config/i3/autostart.sh
+# ---------------------------------------------------------------------------- #
+# 							    Set variables
+# ---------------------------------------------------------------------------- #
+set $A 			    Mod1
+set $M 			    Mod4
+set $S 			    Shift
+set $C 			    Ctrl
+set $term           st
+# ---------------------------------------------------------------------------- #
+# 						    Theme colors & fonts
+# ---------------------------------------------------------------------------- #
+# font pango:DejaVu Sans Mono 12
+font pango:iosevka 12
+set                 $dark                       $141414
+set_from_resource   $primary    i3wm.active     $141414
+set_from_resource   $accent     i3wm.inactive   $141414
+client.focused      $primary    $dark           $primary    $primary    $primary
+client.unfocused    $accent     $dark           $accent     $dark       $accent
+client.background   $dark
+# ---------------------------------------------------------------------------- #
+# 						        Appearance
+# ---------------------------------------------------------------------------- #
+default_border pixel 5
+default_floating_border normal
+for_window [class="^.*"] border pixel 5
+hide_edge_borders none
+gaps inner 12
+gaps outer 2
+# ---------------------------------------------------------------------------- #
+# 							      Control
+# ---------------------------------------------------------------------------- #
+focus_follows_mouse                 no
+workspace_auto_back_and_forth       no
+# Use Mouse+$M to drag floating windows to their wanted position
+floating_modifier $M
+# Change focus
+bindsym $M+h            focus       left
+bindsym $M+j            focus       down
+bindsym $M+k            focus       up
+bindsym $M+l            focus       right
+# Move focused window
+bindsym $M+$S+h         move        left
+bindsym $M+$S+j         move        down
+bindsym $M+$S+k         move        up
+bindsym $M+$S+l         move        right
+# Fullscreen
+bindsym F11             fullscreen  toggle
+# Split
+bindsym $A+$C+h         split h;    exec notify-send "Horizontal tiling"
+bindsym $A+$C+v         split v;    exec notify-send "Vertical tiling"
+# Toggle tiling / floating
+bindsym $A+f                        floating toggle
+# ---------------------------------------------------------------------------- #
+# 							     Shortkeys
+# ---------------------------------------------------------------------------- #
+# Start rofi (a program launcher)
+bindsym $M+d        exec --no-startup-id \
+    $HOME/.config/rofi/launchers/misc/launcher.sh
+# Filebrowser
+bindsym $M+f        exec --no-startup-id \
+    rofi -show filebrowser -theme "$HOME/.config/rofi/launchers/text/style_2"
+# Start a terminal
+bindsym $M+Return   exec $term
+# Start a browser
+bindsym $M+b        exec firefox
+# Start a browser
+bindsym $M+n        exec nemo
+# Kill focused window
+bindsym $M+c        kill
+bindsym $M+$S+c     --release exec --no-startup-id kkill
+# Reload the configuration file
+bindsym $M+r        reload
+# Restart i3 inplace
+bindsym $M+$S+r     restart
+# Launch clearine
+bindsym $A+m        exec clearine
+# Print screen
+bindsym $M+Print    --release exec --no-startup-id i3-scrot -sc
+bindsym $M+$S+Print --release exec --no-startup-id i3-scrot -s
+# ---------------------------------------------------------------------------- #
+# 							    System control
+# ---------------------------------------------------------------------------- #
+# Sound control
+bindsym XF86AudioRaiseVolume        exec --no-startup-id sVolumectl up 1
+bindsym XF86AudioLowerVolume        exec --no-startup-id sVolumectl down 1
+bindsym XF86AudioMute               exec --no-startup-id sVolumectl mute
+# Brightness control
+bindsym XF86MonBrightnessUp         exec --no-startup-id sBrightnessctl increase
+bindsym XF86MonBrightnessDown       exec --no-startup-id sBrightnessctl decrease
+bindsym XF86ScreenSaver             exec --no-startup-id sBrightnessctl set 5
+# Temperature control
+bindsym $C+XF86MonBrightnessUp      exec --no-startup-id \
+    sBrightnessctl redshift increase
+bindsym $C+XF86MonBrightnessDown    exec --no-startup-id \
+    sBrightnessctl redshift decrease
+bindsym $C+XF86ScreenSaver          exec --no-startup-id \
+    sBrightnessctl redshift toggle
+# ---------------------------------------------------------------------------- #
+# 							     Workspaces
+# ---------------------------------------------------------------------------- #
+set $terminal       "10"
+set $browser        "1"
+set $filemanager    "2"
+set $document       "3"
+set $media          "4"
+set $math           "5"
+# switch to workspace
+bindsym $M+1 workspace $browser
+bindsym $M+2 workspace $filemanager
+bindsym $M+3 workspace $document
+bindsym $M+4 workspace $media
+bindsym $M+5 workspace $math
+bindsym $M+6 workspace "6"
+bindsym $M+7 workspace "7"
+bindsym $M+8 workspace "8"
+bindsym $M+9 workspace "9"
+bindsym $M+0 workspace $terminal
+# Move to workspace with focused container
+bindsym $M+$S+1 move container to workspace $browser;workspace $browser
+bindsym $M+$S+2 move container to workspace $filemanager;workspace $filemanager
+bindsym $M+$S+3 move container to workspace $document;workspace $document
+bindsym $M+$S+4 move container to workspace $media;workspace $media
+bindsym $M+$S+5 move container to workspace $math;workspace $math
+bindsym $M+$S+6 move container to workspace "6";workspace "6"
+bindsym $M+$S+7 move container to workspace "7";workspace "7"
+bindsym $M+$S+8 move container to workspace "8";workspace "8"
+bindsym $M+$S+9 move container to workspace "9";workspace "9"
+bindsym $M+$S+0 move container to workspace $terminal;workspace $terminal
+# Open applications in specific workspaces
+assign [class="St"]                 $terminal
+assign [class="firefox"]            $browser
+assign [class="Nemo"]               $filemanager
+assign [class="Mathematica"]        $math
+assign [class="MATLAB"]             $math
+assign [class="zoom"]               $media
+assign [class="Slack"]              $media
+assign [class="Gitter"]             $media
+assign [class="Evince"]             $document
+assign [class="okular"]             $document
+assign [class="Mendeley Desktop"]   $document
+assign [class="VirtualBox Manager"] $media
+# Focus when opened
+for_window [class="^.*"] focus
+# Floating windows
+for_window [class="matplotlib" instance="matplotlib"] floating enable
+for_window [class="Matplotlib" instance="matplotlib"] floating enable
+for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
+for_window [title="IDL*"] floating enable
+for_window [class="Pamac-manager" instance="pamac-manager"] floating enable
+for_window [title="PyTplot Window"] floating enable
+for_window [class="tplot window"] floating enable
+for_window [class="Idl"] floating enable
+for_window [class="Caffeine"] floating enable
+for_window [class="Zoom"] floating enable
+# ---------------------------------------------------------------------------- #
+# 							     Scratchpad
+# ---------------------------------------------------------------------------- #
+for_window [class="dropdown_*"] floating enable
+for_window [class="dropdown_*"] sticky enable
+for_window [class="dropdown_*"] move scratchpad
+for_window [class="dropdown_*"] move position center
+for_window [class="dropdown_*"] resize set 1800 950
+for_window [class="dropdown_*"] border pixel 6
+# Terminal
+exec --no-startup-id $term -n "dropdown_terminal" -c "dropdown_terminal"
+bindsym $M+space [class="dropdown_terminal"] scratchpad show; [class="dropdown_terminal"] move position center
+bindsym $M+$S+space exec $term -n "dropdown_terminal" -c "dropdown_terminal"
+# Spotify (don't start up automatically)
+for_window [class="Spotify"] move scratchpad
+for_window [class="Spotify"] resize set 1800 950
+for_window [class="Spotify"] border pixel 6
+bindsym $M+m [class="Spotify"] scratchpad show; \
+    [class="Spotify"] move position center
+bindsym $M+$S+m exec $HOME/.config/i3/scripts/spotify.sh
+

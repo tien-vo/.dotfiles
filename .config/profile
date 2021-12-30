@@ -1,0 +1,34 @@
+#!/usr/bin/zsh
+
+# Config directory
+[[ -z $XDG_CONFIG_HOME ]] && export XDG_CONFIG_HOME="$HOME/.config"
+
+# Set locale & man
+export MANPATH="/usr/local/man:$MANPATH"
+export LANG=en_US.UTF-8
+
+# Add custom scripts to PATH
+if [[ $UID -ge 1000 && -d $HOME/.local/bin && -z $(echo $PATH | grep -o $HOME/.local/bin) ]]
+then
+    export PATH="${PATH}:$HOME/.local/bin"
+fi
+
+# Default programs
+export EDITOR=/usr/bin/nvim
+export BROWSER=/usr/bin/firefox
+export TERMINAL=/usr/bin/st
+export READER=/usr/bin/evince
+
+# XDG directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+
+# ZSH
+export ZDOTDIR=${XDG_CONFIG_HOME:-$HOME/.config}/zsh
+export HISTFILE=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history
+
+# Python
+export PYTHONSTARTUP=${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc
+
