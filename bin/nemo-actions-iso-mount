@@ -1,0 +1,5 @@
+#!/bin/bash    
+FILE=$(basename "$1")    
+MOUNTPOINT="$HOME/Mounts/$FILE"  
+fuseiso -p "$1" "$MOUNTPOINT"
+

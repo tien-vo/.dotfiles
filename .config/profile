@@ -32,3 +32,6 @@ export HISTFILE=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history
 # Python
 export PYTHONSTARTUP=${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc
 
+# openmpi
+export LD_LIBRARY_PATH=/usr/lib:$HOME/.local/lib
+

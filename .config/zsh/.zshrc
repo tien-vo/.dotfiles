@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.config/oh-my-zsh"
 # Theme
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -46,4 +46,13 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+# IDL & ENVI
+. /home/tien/Applications/harris/envi56/bin/envi_setup.bash
+
+# Spedas
+export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas'
+export SPEDAS_DATA_DIR="$HOME/.local/share/spedas"
+export ROOT_DATA_DIR="$HOME/.local/share/spedas"
 

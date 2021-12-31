@@ -157,6 +157,8 @@ for_window [class="tplot window"] floating enable
 for_window [class="Idl"] floating enable
 for_window [class="Caffeine"] floating enable
 for_window [class="Zoom"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad
 # ---------------------------------------------------------------------------- #
@@ -181,7 +183,7 @@ bindsym $M+m [class="Spotify"] scratchpad show; \
 bindsym $M+$S+m exec $HOME/.config/i3/scripts/spotify.sh
 
 # VIFM
-exec --no-startup-id $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
+exec --no-startup-id $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifm
 bindsym $M+v [class="dropdown_vifm"] scratchpad show; [class="dropdown_vifm"] move position center
-bindsym $M+$S+v exec $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
+bindsym $M+$S+v exec $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifm
 
