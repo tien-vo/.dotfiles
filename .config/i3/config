@@ -63,7 +63,7 @@ bindsym $M+d        exec --no-startup-id \
     $HOME/.config/rofi/launchers/misc/launcher.sh
 # Filebrowser
 bindsym $M+f        exec --no-startup-id \
-    rofi -show filebrowser -theme "$HOME/.config/rofi/launchers/text/style_2"
+    rofi -show filebrowser -theme "$HOME/.config/rofi/launchers/text/style_3"
 # Start a terminal
 bindsym $M+Return   exec $term
 # Start a browser
@@ -86,20 +86,26 @@ bindsym $M+$S+Print --release exec --no-startup-id i3-scrot -s
 # 							    System control
 # ---------------------------------------------------------------------------- #
 # Sound control
-bindsym XF86AudioRaiseVolume        exec --no-startup-id sVolumectl up 1
-bindsym XF86AudioLowerVolume        exec --no-startup-id sVolumectl down 1
-bindsym XF86AudioMute               exec --no-startup-id sVolumectl mute
+bindsym XF86AudioRaiseVolume        exec --no-startup-id \
+    $HOME/bin/sVolumectl up 1
+bindsym XF86AudioLowerVolume        exec --no-startup-id \
+    $HOME/bin/sVolumectl down 1
+bindsym XF86AudioMute               exec --no-startup-id \
+    $HOME/bin/sVolumectl mute
 # Brightness control
-bindsym XF86MonBrightnessUp         exec --no-startup-id sBrightnessctl increase
-bindsym XF86MonBrightnessDown       exec --no-startup-id sBrightnessctl decrease
-bindsym XF86ScreenSaver             exec --no-startup-id sBrightnessctl set 5
+bindsym XF86MonBrightnessUp         exec --no-startup-id \
+    $HOME/bin/sBrightnessctl increase
+bindsym XF86MonBrightnessDown       exec --no-startup-id \
+    $HOME/bin/sBrightnessctl decrease
+bindsym XF86ScreenSaver             exec --no-startup-id \
+    $HOME/bin/sBrightnessctl set 5
 # Temperature control
 bindsym $C+XF86MonBrightnessUp      exec --no-startup-id \
-    sBrightnessctl redshift increase
+    $HOME/bin/sBrightnessctl redshift increase
 bindsym $C+XF86MonBrightnessDown    exec --no-startup-id \
-    sBrightnessctl redshift decrease
+    $HOME/bin/sBrightnessctl redshift decrease
 bindsym $C+XF86ScreenSaver          exec --no-startup-id \
-    sBrightnessctl redshift toggle
+    $HOME/bin/sBrightnessctl redshift toggle
 # ---------------------------------------------------------------------------- #
 # 							     Workspaces
 # ---------------------------------------------------------------------------- #
@@ -159,6 +165,7 @@ for_window [class="Caffeine"] floating enable
 for_window [class="Zoom"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
+for_window [class="vlc"] floating enable
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad
 # ---------------------------------------------------------------------------- #
