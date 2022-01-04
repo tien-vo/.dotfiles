@@ -29,6 +29,7 @@ set fileformat=unix
 set runtimepath+=/usr/share/vim/vimfiles
 set viminfo+=n~/.config/nvim/viminfo
 set rtp+=~/.config/nvim
+set modifiable
 
 " Split
 set splitbelow
