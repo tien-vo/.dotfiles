@@ -145,6 +145,7 @@ assign [class="Mathematica"]        $math
 assign [class="MATLAB"]             $math
 assign [class="zoom"]               $media
 assign [class="Slack"]              $media
+assign [class="Element"]            $media
 assign [class="Gitter"]             $media
 assign [class="Evince"]             $document
 assign [class="okular"]             $document
@@ -166,6 +167,7 @@ for_window [class="Zoom"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="Viewnior"] floating enable
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad
 # ---------------------------------------------------------------------------- #
@@ -190,7 +192,7 @@ bindsym $M+m [class="Spotify"] scratchpad show; \
 bindsym $M+$S+m exec $HOME/.config/i3/scripts/spotify.sh
 
 # VIFM
-exec --no-startup-id $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifm
+exec --no-startup-id $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
 bindsym $M+v [class="dropdown_vifm"] scratchpad show; [class="dropdown_vifm"] move position center
-bindsym $M+$S+v exec $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifm
+bindsym $M+$S+v exec $term -n "dropdown_vifm" -c "dropdown_vifm" -e vifmrun
 

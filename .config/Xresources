@@ -1,5 +1,5 @@
 *.alpha: 0.8
-*.font: monospace:style=Regular:size=14
+*.font: monospace:size=14
 
 /* !! gruvbox: */
 *.color0: #1d2021
@@ -28,14 +28,17 @@
 *.inactive:     #7CAFC2
 
 
-#/* Xcursor */
-#Xcursor.theme: pop
-#Xcursor.size: 2
-#
-#
-#/* Rofi */
+/* Xcursor */
+Xcursor.theme: pop
+Xcursor.size: 2
+
+
+/* Rofi */
 rofi.modi: ssh,window,drun,file-browser
 rofi.font: Fira Sans 14
 rofi.sidebar-mode: false
 rofi.terminal:          st
+
+/* IDL */
+IDL.font: -*-dejavu mono-*-*-*-*-*-*-*-*-*-*-*-*
 

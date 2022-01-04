@@ -29,9 +29,14 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
 export ZDOTDIR=${XDG_CONFIG_HOME:-$HOME/.config}/zsh
 export HISTFILE=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zsh_history
 
+# VIFM
+export PATH=$PATH:$HOME/.config/vifm/scripts
+
 # Python
 export PYTHONSTARTUP=${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc
 
 # openmpi
 export LD_LIBRARY_PATH=/usr/lib:$HOME/.local/lib
 
+# CDF
+. /home/tien/.local/bin/definitions.B

@@ -52,7 +52,7 @@ unset __conda_setup
 . /home/tien/Applications/harris/envi56/bin/envi_setup.bash
 
 # Spedas
-export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas'
+export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas:+~/Projects/tlib'
 export SPEDAS_DATA_DIR="$HOME/.local/share/spedas"
 export ROOT_DATA_DIR="$HOME/.local/share/spedas"
 
