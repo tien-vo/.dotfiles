@@ -40,5 +40,7 @@ export PYTHONSTARTUP=${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc
 export PATH=$PATH:$HOME/Applications/vpic/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Applications/vpic/lib
 
-# CDF
-. /home/tien/.local/bin/definitions.B
+# Spedas
+export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas:+~/Projects/tlib'
+export SPEDAS_DATA_DIR="$HOME/.local/share/spedas"
+export ROOT_DATA_DIR="$HOME/.local/share/spedas"

@@ -68,8 +68,10 @@ bindsym $M+f        exec --no-startup-id \
 bindsym $M+Return   exec $term
 # Start a browser
 bindsym $M+b        exec firefox
-# Start a browser
+# Start file manager
 bindsym $M+n        exec nemo
+# Start thunderbird
+bindsym $M+t        exec thunderbird
 # Kill focused window
 bindsym $M+c        kill
 bindsym $M+$S+c     --release exec --no-startup-id kkill
@@ -147,6 +149,7 @@ assign [class="zoom"]               $media
 assign [class="Slack"]              $media
 assign [class="Element"]            $media
 assign [class="Gitter"]             $media
+assign [class="Thunderbird"]        $media
 assign [class="Evince"]             $document
 assign [class="okular"]             $document
 assign [class="Mendeley Desktop"]   $document
@@ -168,6 +171,8 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Viewnior"] floating enable
+for_window [class="Thunderbird" title="New Event:"] floating enable
+
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad
 # ---------------------------------------------------------------------------- #
