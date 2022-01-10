@@ -67,7 +67,11 @@ bindsym $M+f        exec --no-startup-id \
 # Start a terminal
 bindsym $M+Return   exec $term
 # Start a browser
-bindsym $M+b        exec firefox
+bindsym $M+b        --release exec --no-startup-id \
+    rofi -show search -theme "$HOME/.config/rofi/launchers/text/style_3" \
+    -modi search:$HOME/.config/i3/scripts/rofi_web_search.py -i \
+    -p "Search: "
+bindsym $M+$S+b        exec firefox
 # Start file manager
 bindsym $M+n        exec nemo
 # Start thunderbird
@@ -172,6 +176,8 @@ for_window [class="VirtualBox Manager"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Viewnior"] floating enable
 for_window [class="Thunderbird" title="New Event:"] floating enable
+for_window [class="Thunderbird" title="Message Filters"] floating enable
+for_window [class="Thunderbird" title="Write:*"] floating enable
 
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad

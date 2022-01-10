@@ -17,6 +17,8 @@ caffeine start &
 #xss-lock --transfer-sleep-lock -- i3lock --nofork &
 # Dunst
 dunst -conf $HOME/.config/dunst/dunstrc &
+# Thunderbird
+#thunderbird &
 
 # Automatically mount USBs
 if [[ -z $(pgrep "udiskie") ]];
