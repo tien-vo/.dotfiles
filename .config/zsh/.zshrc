@@ -20,8 +20,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="mm/dd/yyyy"
 
 # Plugins
-plugins=(git sudo zsh-autosuggestions zsh-z)
+plugins=(git sudo zsh-autosuggestions zsh-z colorize)
 source $ZSH/oh-my-zsh.sh
+ZSH_COLORIZE_TOOL=pygmentize
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -52,4 +53,7 @@ unset __conda_setup
 
 # IDL & ENVI
 . /home/tien/Applications/harris/envi56/bin/envi_setup.bash
+
+# Virtualenv
+source /home/tien/Applications/anaconda3/bin/virtualenvwrapper.sh
 

@@ -25,9 +25,12 @@ client.background   $dark
 # ---------------------------------------------------------------------------- #
 # 						        Appearance
 # ---------------------------------------------------------------------------- #
-default_border pixel 5
+#default_border pixel 5
+#default_floating_border normal
+#for_window [class="^.*"] border pixel 5
+default_border pixel 2
 default_floating_border normal
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
 hide_edge_borders none
 gaps inner 12
 gaps outer 2
@@ -67,15 +70,15 @@ bindsym $M+f        exec --no-startup-id \
 # Start a terminal
 bindsym $M+Return   exec $term
 # Start a browser
-bindsym $M+b        --release exec --no-startup-id \
+bindsym $M+$S+b        --release exec --no-startup-id \
     rofi -show search -theme "$HOME/.config/rofi/launchers/text/style_3" \
     -modi search:$HOME/.config/i3/scripts/rofi_web_search.py -i \
     -p "Search: "
-bindsym $M+$S+b        exec firefox
+bindsym $M+b        exec firefox
 # Start file manager
 bindsym $M+n        exec nemo
-# Start thunderbird
-bindsym $M+t        exec thunderbird
+# Start email client
+bindsym $M+e        exec prospect-mail
 # Kill focused window
 bindsym $M+c        kill
 bindsym $M+$S+c     --release exec --no-startup-id kkill
@@ -88,6 +91,8 @@ bindsym $A+m        exec clearine
 # Print screen
 bindsym $M+Print    --release exec --no-startup-id i3-scrot -sc
 bindsym $M+$S+Print --release exec --no-startup-id i3-scrot -s
+# Change focus between floating/tiling
+bindsym $M+t        focus mode_toggle
 # ---------------------------------------------------------------------------- #
 # 							    System control
 # ---------------------------------------------------------------------------- #
@@ -145,6 +150,8 @@ bindsym $M+$S+9 move container to workspace "9";workspace "9"
 bindsym $M+$S+0 move container to workspace $terminal;workspace $terminal
 # Open applications in specific workspaces
 assign [class="St"]                 $terminal
+#assign [title="IDL*"]               $terminal
+assign [class="Zathura"]            $terminal
 assign [class="firefox"]            $browser
 assign [class="Nemo"]               $filemanager
 assign [class="Mathematica"]        $math
@@ -154,10 +161,12 @@ assign [class="Slack"]              $media
 assign [class="Element"]            $media
 assign [class="Gitter"]             $media
 assign [class="Thunderbird"]        $media
+assign [class="Prospect Mail"]      $media
 assign [class="Evince"]             $document
 assign [class="okular"]             $document
 assign [class="Mendeley Desktop"]   $document
 assign [class="VirtualBox Manager"] $media
+assign [class="Com.cisco.anyconnect.gui"] "6"
 # Focus when opened
 for_window [class="^.*"] focus
 # Floating windows
@@ -178,6 +187,10 @@ for_window [class="Viewnior"] floating enable
 for_window [class="Thunderbird" title="New Event:"] floating enable
 for_window [class="Thunderbird" title="Message Filters"] floating enable
 for_window [class="Thunderbird" title="Write:*"] floating enable
+for_window [class="Com.cisco.anyconnect.gui"] floating enable
+for_window [class="Cisco AnyConnect Secure Mobility Client"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="Xfce4-power-manager-settings"] floating enable
 
 # ---------------------------------------------------------------------------- #
 # 							     Scratchpad
@@ -187,7 +200,7 @@ for_window [class="dropdown_*"] sticky enable
 for_window [class="dropdown_*"] move scratchpad
 for_window [class="dropdown_*"] move position center
 for_window [class="dropdown_*"] resize set 1800 950
-for_window [class="dropdown_*"] border pixel 6
+for_window [class="dropdown_*"] border pixel 4
 
 # Terminal
 exec --no-startup-id $term -n "dropdown_terminal" -c "dropdown_terminal"

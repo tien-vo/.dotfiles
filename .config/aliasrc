@@ -1,11 +1,11 @@
 #!/bin/sh
 
-
+alias cat="ccat"
 alias vim="nvim"
 alias vifm="vifmrun"
 alias zload="source $HOME/.config/zsh/.zshrc"
 alias zconf="vim $XDG_CONFIG_HOME/zsh/.zshrc"
-alias ls="clear && lsd -1l --blocks permission,size,date,name --date '+%y/%m/%d:%H:%M' --group-dirs first"
+#alias ls="lsd -1l --blocks permission,size,date,name --date '+%y/%m/%d:%H:%M' --group-dirs first"
 alias git-config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Gimp
@@ -13,3 +13,6 @@ alias git-config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Python
 #alias s3cmd="s3cmd -c ${XDG_CONFIG_HOME:-$HOME/.config}/python/s3cfg"
+
+# Matlab
+alias matlab="matlab -nodesktop -nosplash"

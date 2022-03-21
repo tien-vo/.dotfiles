@@ -29,16 +29,17 @@
 
 
 /* Xcursor */
-Xcursor.theme: pop
-Xcursor.size: 2
+Xcursor*theme: pop
+Xcursor*size: 2
 
 
 /* Rofi */
-rofi.modi: ssh,window,drun,file-browser
-rofi.font: Fira Sans 14
-rofi.sidebar-mode: false
-rofi.terminal:          st
+rofi*modi: ssh,window,drun,file-browser
+rofi*font: Fira Sans 14
+rofi*sidebar-mode: false
+rofi*terminal: st
 
 /* IDL */
-IDL.font: -*-dejavu mono-*-*-*-*-*-*-*-*-*-*-*-*
-
+!Idl*font: -misc-fira sans book-medium-i-normal--0-140-0-0-p-0-iso8859-1
+!Idl*font: -monotype-times new roman-medium-r-normal--0-0-0-0-p-0-iso8859-15
+Idl*font: -misc-dejavu serif-medium-r-normal--0-0-0-0-p-0-ascii-0

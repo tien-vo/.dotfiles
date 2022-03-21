@@ -37,6 +37,13 @@ if [[ $1 != "drive" ]]; then
             "space:/Users/voxxx266"
         )
 
+    elif [[ $1 == "lasp" ]]; then
+
+        dirs=( "HOME" )
+        server_dirs=( \
+            "lasp:/Users/tienad"
+        )
+
     fi
 
     for i in $(seq 0 1 $((${#dirs[@]}-1)))

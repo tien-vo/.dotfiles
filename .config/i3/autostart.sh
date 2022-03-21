@@ -12,10 +12,13 @@ nm-applet &
 # Set X window property
 xset r rate 250 25 &
 # Launch caffeine applet
-caffeine start &
+caffeine -a &
 # Screenlock
 #xss-lock --transfer-sleep-lock -- i3lock --nofork &
 # Dunst
+dunst -conf $HOME/.config/dunst/dunstrc &
+# GUI power manager
+xfce4-power-manager --daemon &
 dunst -conf $HOME/.config/dunst/dunstrc &
 # Thunderbird
 #thunderbird &

@@ -36,11 +36,24 @@ export PATH=$PATH:$HOME/.config/vifm/scripts
 # Python
 export PYTHONSTARTUP=${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc
 
+# Conda
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tien/Applications/anaconda3/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/tien/.local/lib
+
 # VPIC
 export PATH=$PATH:$HOME/Applications/vpic/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Applications/vpic/lib
 
 # Spedas
-export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas:+~/Projects/tlib'
+export IDL_PATH='<IDL_DEFAULT>:+~/Applications/spedas:+~/Code/tlib'
+export IDL_STARTUP=$HOME/Code/tlib/tv_idl/startup.pro
+#export IDL_PATH="$IDL_PATH:+~/Code/bobs_cribs"
+#export IDL_PATH="$IDL_PATH:+~/Applications/IDLAstro/pro"
 export SPEDAS_DATA_DIR="$HOME/.local/share/spedas"
 export ROOT_DATA_DIR="$HOME/.local/share/spedas"
+
+# Matlab
+export PATH=$PATH:$HOME/Applications/MATLAB/R2022a/bin
+
+# Python virtual environment
+export WORKON_HOME=$HOME/.local/share/venv
